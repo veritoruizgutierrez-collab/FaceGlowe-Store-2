@@ -4,14 +4,14 @@ const mensajeCompra = document.getElementById("mensaje-compra");
 
 let productos = [];
 
-// PRODUCTOS (puedes cambiarlo luego por JSON)
+
 productos = [
     {
         id: 1,
         nombre: "Crema hidratante facial",
         categoria: "Hidratación",
         precio: "$8500",
-        descripcion: "Hidrata profundamente la piel.",
+        descripcion: "Crema facial con ácido hialurónico qu hidrata profundamente la piel y ayuda a mantener una apariencia fresca y saludable.",
         beneficios: "Suavidad y frescura.",
         imagen: "hidratante.png"
     },
@@ -20,7 +20,7 @@ productos = [
         nombre: "Sérum vitamina C",
         categoria: "Rejuvenecimiento",
         precio: "$12000",
-        descripcion: "Ilumina la piel y reduce manchas.",
+        descripcion: "Sérum antioxidante que ayuda a iluminar la piel y reducir manchas ocasionadas por el sol.",
         beneficios: "Piel más luminosa.",
         imagen: "serum-vitamina-c-evok.jpg"
     },
@@ -29,7 +29,7 @@ productos = [
         nombre: "Protector solar SPF 50",
         categoria: "Protección",
         precio: "$9500",
-        descripcion: "Protege contra rayos UVA y UVB.",
+        descripcion: "Protector solar de rápida absorción que protege la piel contra rayos UVA y UVB",
         beneficios: "Previene manchas.",
         imagen: "protector-solar-facial-bioactiv-fps-50-rayito-de-sol-30-g.jpg"
     }
@@ -90,10 +90,10 @@ function mostrarProductos(listaProductos) {
     }
 }
 
-// MOSTRAR AL INICIO
+
 mostrarProductos(productos);
 
-// BUSCADOR
+
 buscador.addEventListener("input", function () {
 
     const texto = buscador.value.toLowerCase();
