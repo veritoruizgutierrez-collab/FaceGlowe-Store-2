@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FaceGlow Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="contenedor-header">
+
+            <h1>FaceGlow Store</h1>
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- PRESENTACIÓN -->
+    <section class="presentacion">
+
+        <h2>Bienvenidos</h2>
+
+        <p>
+            Somos una tienda dedicada al bienestar y
+            cuidado de las personas mediante nuestros productos,
+            brindando calidad, seguridad y belleza
+            para mejorar la piel.
+        </p>
+
+    </section>
+
+    <!-- MISIÓN -->
+    <section class="mision">
+
+        <h2>Nuestra misión</h2>
+
+        <p>
+            Brindar productos de calidad para el cuidado profesional
+            de la piel de nuestros clientes.
+        </p>
+
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="busqueda">
+
+        <input
+            type="text"
+            id="buscarProductos"
+            placeholder="Buscar productos..."
+        >
+
+    </section>
+
+    <!-- PRODUCTOS -->
+    <main>
+
+        <section
+            id="contenedor-productos"
+            class="productos"
+        >
+
+        </section>
+
+    </main>
+
+   
+    <footer>
+
+        <p>
+            © 2026 FaceGlow Store | Todos los derechos reservados.
+        </p>
+
+        <p>
+            Cañas, Guanacaste, Costa Rica
+        </p>
+
+    </footer>
+
+    <script>
+
+        const contenedor = document.getElementById("contenedor-productos");
+
+        
+        const buscador = document.getElementById("buscarProductos");
+
+ 
+        const productos = [
+
+            {
+                id: 1,
+                nombre: "Crema hidratante facial",
+                categoria: "Hidratación",
+                precio: "$8500",
+                descripcion: "Crema facial con ácido hialurónico que hidrata profundamente la piel y ayuda a mantener una apariencia fresca y saludable.",
+                beneficios: "Hidratación profunda y suavidad en la piel.",
+                imagen: "hidratante.png"
+            },
+
+            {
+                id: 2,
+                nombre: "Sérum vitamina C",
+                categoria: "Rejuvenecimiento",
+                precio: "$12000",
+                descripcion: "Sérum antioxidante que ayuda a iluminar la piel y reducir manchas ocasionadas por el sol.",
+                beneficios: "Aclara manchas y previene el envejecimiento prematuro.",
+                imagen: "serum-vitamina-c-evok.jpg"
+            },
+
+            {
+                id: 3,
+                nombre: "Protector solar facial SPF 50",
+                categoria: "Protección",
+                precio: "$9500",
+                descripcion: "Protector solar de rápida absorción que protege la piel contra rayos UVA y UVB.",
+                beneficios: "Previene manchas y envejecimiento prematuro.",
+                imagen: "protector-solar-facial-bioactiv-fps-50-rayito-de-sol-30-g.jpg"
+            }
+
+        ];
+
+  
+        function mostrarProductos(listaProductos) {
+
+            contenedor.innerHTML = "";
+
+            listaProductos.forEach(producto => {
+
+                const tarjeta = document.createElement("div");
+
+                tarjeta.classList.add("tarjeta");
+
+                tarjeta.innerHTML = `
+
+                    <img 
+                        src="${producto.imagen}" 
+                        alt="${producto.nombre}"
+                        class="imagen-producto"
+                    >
+
+                    <div class="contenido">
+
+                        <span class="categoria">
+                            ${producto.categoria}
+                        </span>
+
+                        <h3>${producto.nombre}</h3>
+
+                        <p>
+                            ${producto.descripcion}
+                        </p>
+
+                        <p>
+                            <strong>Precio:</strong>
+                            ${producto.precio}
+                        </p>
+
+                        <a href="#" class="boton detalle-btn">
+                            Ver detalle
+                        </a>
+
+                    </div>
+                `;
+
+                // BOTÓN DETALLE
+                const botonDetalle = tarjeta.querySelector(".detalle-btn");
+
+                botonDetalle.addEventListener("click", function(event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Producto: " + producto.nombre + "\n\n" +
+                        "Categoría: " + producto.categoria + "\n\n" +
+                        "Precio: " + producto.precio + "\n\n" +
+                        "Beneficios: " + producto.beneficios + "\n\n" +
+                        producto.descripcion
+                    );
+
+                });
+
+                contenedor.appendChild(tarjeta);
+
+            });
+
+            // SIN RESULTADOS
+            if(listaProductos.length === 0){
+
+                contenedor.innerHTML = `
+                    <p class="sin-resultados">
+                        No se encontraron productos.
+                    </p>
+                `;
+            }
+        }
+
+        // MOSTRAR AL CARGAR
+        mostrarProductos(productos);
+
+        // BUSCADOR
+        buscador.addEventListener("input", function(){
+
+            const texto = buscador.value.toLowerCase();
+
+            const resultados = productos.filter(producto =>
+
+                producto.nombre.toLowerCase().includes(texto) ||
+
+                producto.categoria.toLowerCase().includes(texto)
+
+            );
+
+            mostrarProductos(resultados);
+
+        });
+
+        // CAMBIO DE TÍTULO
+        const tituloOriginal = document.title;
+
+        window.addEventListener("blur", function(){
+
+            document.title = "¡Gracias por visitar FaceGlow!";
+
+        });
+
+        window.addEventListener("focus", function(){
+
+            document.title = tituloOriginal;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

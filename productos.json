@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "elemento": "Información.",
+        "nombre": "Crema hidratante facial.",
+        "Categoría": "Hidratación.",
+        "Precio":"$8500",
+        "Descripción": "Crema facial con ácido hialurónico qu hidrata profundamente la piel y ayuda a mantener una apariencia fresca y saludable.",
+        "Beneficios": "Hidratación proofunda y suavidad en la piel.",
+        "imagen": "hidratante.png"
+
+
+    },
+
+    {
+         "id":2,
+        "elemento": "Información.",
+        "nombre": "Sérum vitamina C.",
+        "Categoría": "Rejuvenecimiento.",
+        "Precio":"$12000",
+        "Descripción": "Sérum antioxidante que ayuda a iluminar la piel y reducir manchas ocasionadas por el sol.",
+        "Beneficios": "Aclara manchas y envejecimiento prematuro.",
+         "imagen": "serum-vitamina-c-evok.jpg"
+
+    },
+
+    {
+         "id":3,
+        "elemento": "Información.",
+        "nombre": "Protector solar facial SPF 50.",
+        "Categoría": "Protección.",
+        "Precio":"$9500",
+        "Descripción": "Protector solar de rápida absorción que protege la piel contra rayos UVA y UVB",
+        "Beneficios": "Previene manchas y envejecimiento prematuro.",
+         "imagen": "protector-solar-facial-bioactiv-fps-50-rayito-de-sol-30-g.jpg"
+
+    }
+]
